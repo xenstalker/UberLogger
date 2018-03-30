@@ -335,7 +335,14 @@ namespace UberLogger
             if(match.Count>0)
             {
                 filename = match[0].Groups[1].Value;
-                lineNumber = Convert.ToInt32(match[0].Groups[2].Value);
+                try
+                {
+                    lineNumber = Convert.ToInt32(match[0].Groups[2].Value);
+                }
+                catch (Exception e)
+                {
+                    // Do nothing.
+                }
                 return true;
             }
             return false;
@@ -355,7 +362,14 @@ namespace UberLogger
                 declaringType = match[0].Groups[1].Value;
                 methodName = match[0].Groups[2].Value;
                 filename = match[0].Groups[3].Value;
-                lineNumber = Convert.ToInt32(match[0].Groups[4].Value);
+                try
+                {
+                    lineNumber = Convert.ToInt32(match[0].Groups[4].Value);
+                }
+                catch (Exception e)
+                {
+                    // Do nothing.
+                }
                 return true;
             }
             return false;
